@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片切换滚播</title>
+	<script>
+		window.onload = function(){
+			var info = document.getElementById("info");
+			var img = document.getElementsByTagName("img")[0];  	//实例化数组
+			var one = document.getElementById("one");
+			var two = document.getElementById("two");
+			var imgArr = ["D://js/images/1.png", "D://js/images/2.png", "D://js/images/3.png", "D://js/images/4.png"];		//引入图像数组
+			var imges = 0;			//初始化数组索引
+			info.innerHTML = "总共有 " + imgArr.length + " 张图片，当前位置为第 " + (imges+1) + " 张";		//未点击响应时显示张数									
+				one.onclick = function(){			//上一张
+					imges --;
+						if(imges < 0){					//进入上一张图片切换循环
+							imges = imgArr.length -1;
+						}
+					img.src = imgArr[imges];
+					info.innerHTML = "总共有 " + imgArr.length + " 张图片，当前位置为第 " + (imges+1) + " 张";		//点击响应张数
+				}
+				two.onclick = function(){			//下一张
+					imges ++;
+						if(imges >= imgArr.length){		//进入下一张图片切换循环
+							imges = 0;
+						}
+					img.src = imgArr[imges];
+					info.innerHTML = "总共有 " + imgArr.length + " 张图片，当前位置为第 " + (imges+1) + " 张";
+				}
+		}
+	</script>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#quan {
+			width: 500px;
+			background-color: skyblue;
+			border: 10px skyblue solid;
+			border-top: 0px;
+			border-bottom: 0px;
+			margin: 50px auto;
+			text-align: center;
+		}
+		#info {
+			font-size: 14px;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div id = "quan">
+		<p id = "info"></p>		<!--显示张数-->
+		<img src = "D://js/images/1.png" alt = "酷公司，用钉钉">		<!--默认显示图-->
+		<button id = "one"><上一张</button>
+		<button id = "two">下一张></button>
+	</div>
+</body>
+</html>
