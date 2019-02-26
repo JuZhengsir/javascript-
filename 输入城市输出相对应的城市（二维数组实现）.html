@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二维数组</title>
+	<script>
+		function fun(){
+			var sf = ["广东","福建","北京"];
+			var cs = [["汕头","惠州","深圳"], ["厦门","福州","漳州"],["海淀","东城","西城"]];	//二维数组
+				
+				var input = prompt("请输入省份");
+					var index = -1;						//先定义一个不存在的数值，用来做判断和赋值索引下标的
+						for(i=0; i<sf.length; i++){
+							if(input == sf[i]){					//判断 sf[i] 的下标是否 == input，是的话赋值下标给 index;
+								index = i;
+									break;
+							}
+						}
+						if(index == -1){					//判断 index 是否属于 -1，上边的 if 判断失败
+							alert("找不到你要查询的省份");
+						}else{
+							alert(cs[index]);					//index 赋值下标成功，输出 cs[index] 的下标
+						}
+		}
+		fun();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
